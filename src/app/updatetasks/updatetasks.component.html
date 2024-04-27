@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <div *ngIf="isDataLoaded">
+        <div class="container">
+     <form class="form-group" [formGroup]="form" (ngSubmit)="updateTask()">
+        <label class="flex-column"  for="title">Title:</label>
+        <input id="title" formControlName="title"/>
+        <label class="flex-column" for="description">Description:</label>
+        <input id="description" formControlName="description"/>
+        <label class="flex-column" for="dueDate">Due Date:</label>
+        <input id="dueDate" formControlName="dueDate" placeholder="Due Date"/>
+        <button type="submit" class="btn btn-outline-success">Update</button>
+    </form>
+   </div>
+     </div>
+</body>
+</html>

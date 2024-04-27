@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div *ngIf="rolesData">
+      <form [formGroup]="rolesForm" *ngIf="rolesForm">
+  <div class="container" formArrayName="roles" *ngFor="let role of rolesForm.get('roles').controls; let i = index">
+    <div [formGroupName]="i">
+      <label for="id{{i}}">Role Id:</label>
+      <input type="text" id="id{{i}}" formControlName="id" [disabled]="role.controls.id.disabled"/>
+      <label for="name{{i}}">Role Name:</label>
+      <input type="text" id="name{{i}}" formControlName="name" />
+      <button type="button" class="btn btn-outline-success"
+      (click)="onUpdateRole(rolesData[i].name,role.controls.name.value)">Update Role</button>
+      <button type="button" class="btn btn-outline-warning" (click)="openUserRoleDialog()">Set Role To User</button>
+      <br><br>
+    </div>
+  </div>
+</form>
+  </div>
+</body>
+</html>

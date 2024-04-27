@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <form [formGroup]="form" (ngSubmit)="login()">
+        <label for="user">User:</label>
+        <input type="text" id="user" formControlName="user" placeholder="Enter User Name"/>
+        
+        <label  for="email">Email:</label>
+        <input id="email" type="email" formControlName="email" placeholder="Enter Email"/>
+
+        <label  for="password">Password:</label>
+        <input id="password" type="password" formControlName="password" placeholder="Create your password"/>
+
+        <button type="submit" class="btn btn-outline-success">Login</button>
+    </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+       <div class="input-group">
+  <div class="input-group-prepend">
+    <button class="btn btn-success button" type="button" (click)="filterAllTasks(filter.value)">Search By Title</button>
+  </div>
+  <input type="text" class="form-control" placeholder="" #filter>
+</div>
+  <br>
+      <table class="table table-bordered table-striped">
+        <thead class="thead">
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Due Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of filterTasks">
+                <td scope="row">{{task.id}}</td>
+                <td>{{task.title}}</td>
+                <td>{{task.description}}</td>
+                <td>{{task.dueDate}} <img class="img" src="assets/edit-icon.png" alt="edit icon" (click)="editTask(task)"></td>
+            </tr>
+        </tbody>
+      </table>
+
+      <button class="btn btn-outline-warning" (click)="getAllTasks()">Get Tasks</button>
+      <button class="btn btn-outline-warning" (click)="AddTask()">Add Tasks</button>
+    </div>
+    <!-- <div *ngIf="!isButtonupdate; else updateButton">
+      <app-addtasks (taskData)="taskHandler($event)"></app-addtasks>
+    </div>
+    <ng-template #updateButton>
+            <app-updatetasks [task]="task"></app-updatetasks>
+    </ng-template> -->
+</body>
+</html>
